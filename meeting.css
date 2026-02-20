@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Flashing Emergency Popup ===== */
+.emergency-popup {
+  position: absolute;
+  top: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  padding: 20px 40px;
+  background: red;
+  border-radius: 20px;
+  animation: flash 1s infinite;
+  cursor: pointer;
+  transform: none;
+}
+
+.emergency-popup:hover {
+  transform: scale(1.2);
+}
+
+/* Flash animation */
+@keyframes flash {
+  0% {
+    background: red;
+    opacity: 0.1;
+  }
+  50% {
+    background: yellow;
+    color: black;
+  }
+  100% {
+    background: red;
+  }
+}
+
+/* ===== Meeting Room Box ===== */
+.meeting-room {
+  background: #222;
+  padding: 60px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 40px red;
+}
+
+.meeting-room h1 {
+  color: white;
+  margin-bottom: 40px;
+}
+
+/* ===== Bell Button ===== */
+.bell-btn {
+  padding: 20px 40px;
+  font-size: 20px;
+  background: orange;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bell-btn:hover {
+  background: gold;
+  transform: scale(1.1);
+}

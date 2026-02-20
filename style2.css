@@ -1,0 +1,422 @@
+/* --- Bouncing Ball Demo --- */
+.bouncing-ball-container {
+  position: relative;
+  width: 180px;
+  height: 220px;
+  margin: 40px auto 32px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.trans-prop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.trans,
+.trans1,
+.trans2,
+.trans3,
+.trans4,
+.transition-demo ,.trans6{
+  width: 200px;
+  height: 200px;
+  background-color: #90caf9;
+  margin: 40px auto;
+}
+.trans:hover {
+  /* transform: translate(100px, 50px); */
+  /* transform:  translateY(50px); */
+  /* transform: scale(1.2, 1.2) rotate(15deg); */
+  transform: skew(20deg, 10deg) rotate(12deg);
+}
+
+.trans1:hover {
+  transform: translateX(100px) translateY(50px);
+}
+.trans2:hover {
+  transform: skew(20deg, 10deg);
+}
+
+.trans3:hover {
+  transform: scale(1.2, 1.2) rotate(15deg);
+}
+
+.trans4 {
+  transition: all 0.5s ease;
+  background: #6a1b9a;
+  border-radius: 20%;
+}
+.eyes {
+  width: 60px;
+  height: 30px;
+  background: #b2ebf2;
+  border-radius: 20px 20px 15px 15px / 20px 20px 15px 15px;
+  position: absolute;
+  top: 35px;
+  left: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.eye-left,
+.eye-right {
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+}
+.eye-left {
+  left: 12px;
+}
+.eye-right {
+  left: 40px;
+}
+
+.smile {
+  width: 40px;
+  height: 20px;
+  border-bottom: 4px solid #000;
+  border-radius: 0 0 20px 20px / 0 0 10px 10px;
+  position: absolute;
+  top: 60px;
+  left: 30px;
+}
+
+.tooth-left,
+.tooth-right {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 2px;
+  position: absolute;
+  top: 20px;
+}
+.tooth-left {
+  left: 8px;
+}
+.tooth-right {
+  left: 24px;
+}
+
+.trans4:hover {
+  /* transform: matrix(0.866, 0.5, -0.5, 0.866, 1.2, 0); */
+  /* transform: translate(50px, 50px) scale(1.2) rotate(15deg); */
+  transform: translateX(100px) scale(1.2) rotate(15deg);
+}
+
+.trans6{
+  animation: movebox 3s linear infinite alternate-reverse;
+}
+
+@keyframes movebox {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+.bouncing-ball {
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fff 30%,
+    #1976d2 80%,
+    #0d47a1 100%
+  );
+  border-radius: 50%;
+  box-shadow:
+    0 8px 24px 0 rgba(33, 33, 33, 0.25),
+    0 0 0 4px #90caf9 inset;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  animation: bounce 1.4s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+  z-index: 2;
+  transition:
+    box-shadow 0.3s,
+    filter 0.3s;
+}
+.bouncing-ball:hover {
+  box-shadow:
+    0 16px 48px 0 rgba(33, 33, 33, 0.35),
+    0 0 0 8px #1976d2 inset;
+  filter: brightness(1.15) saturate(1.2);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  }
+  10% {
+    transform: translateX(-50%) translateY(-80px) scaleY(1.08) scaleX(0.95);
+    animation-timing-function: ease-in;
+  }
+  20% {
+    transform: translateX(-50%) translateY(-120px) scaleY(0.95) scaleX(1.05);
+    animation-timing-function: ease-in;
+  }
+  30% {
+    transform: translateX(-50%) translateY(-140px) scaleY(0.9) scaleX(1.08);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    transform: translateX(-50%) translateY(-120px) scaleY(1.05) scaleX(0.97);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translateX(-50%) translateY(0) scaleY(1.1) scaleX(0.93);
+    animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-40px) scaleY(0.98) scaleX(1.02);
+    animation-timing-function: ease-in;
+  }
+  70% {
+    transform: translateX(-50%) translateY(0) scaleY(1.05) scaleX(0.97);
+    animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  }
+  80% {
+    transform: translateX(-50%) translateY(-16px) scaleY(0.99) scaleX(1.01);
+    animation-timing-function: ease-in;
+  }
+  90% {
+    transform: translateX(-50%) translateY(0) scaleY(1.02) scaleX(0.98);
+    animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.ball-shadow {
+  width: 64px;
+  height: 18px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(33, 33, 33, 0.25) 60%,
+    rgba(33, 33, 33, 0.05) 100%
+  );
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%) scaleX(1);
+  z-index: 1;
+  animation: shadow-bounce 1.4s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+  transition: filter 0.3s;
+}
+.bouncing-ball:hover + .ball-shadow {
+  filter: blur(2px) brightness(0.8);
+}
+
+@keyframes shadow-bounce {
+  0% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.7;
+  }
+  10% {
+    transform: translateX(-50%) scaleX(0.85);
+    opacity: 0.5;
+  }
+  20% {
+    transform: translateX(-50%) scaleX(0.7);
+    opacity: 0.35;
+  }
+  30% {
+    transform: translateX(-50%) scaleX(0.6);
+    opacity: 0.25;
+  }
+  40% {
+    transform: translateX(-50%) scaleX(0.7);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translateX(-50%) scaleX(0.9);
+    opacity: 0.5;
+  }
+  70% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translateX(-50%) scaleX(0.95);
+    opacity: 0.6;
+  }
+  90% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.7;
+  }
+}
+/* --- Transition Demo Styles --- */
+.transition-demo {
+  width: 220px;
+  height: 60px;
+  margin: 24px auto;
+  background: #90caf9;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: none;
+}
+
+/* 1. Shorthand transition */
+.transition-demo.shorthand {
+  transition:
+    background 0.5s linear,
+    color 0.7s ease-in 0.2s,
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+}
+.transition-demo.shorthand:hover {
+  background: #43a047;
+  color: #fff;
+  transform: scale(1.15) rotate(-3deg);
+}
+
+/* 2. Longhand transition */
+.transition-demo.longhand {
+  transition-property: background, color, border-radius;
+  transition-duration: 0.6s, 0.3s, 0.8s;
+  transition-timing-function: ease-in, linear, cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0s, 0.2s, 0.5s;
+}
+.transition-demo.longhand:hover {
+  background: #fbc02d;
+  color: #222;
+  border-radius: 32px;
+}
+
+/* 3. Multiple properties, delays */
+.transition-demo.multi {
+  transition-property: background, box-shadow, color;
+  transition-duration: 0.3s, 0.7s, 0.5s;
+  transition-timing-function: ease, ease-in, ease-out;
+  transition-delay: 0s, 0.3s, 0.6s;
+}
+.transition-demo.multi:hover {
+  background: #d32f2f;
+  box-shadow: 0 8px 32px rgba(211, 47, 47, 0.4);
+  color: #fff;
+}
+
+/* 4. Different timing functions */
+.transition-demo.timing {
+  transition-property: background, color, transform;
+  transition-duration: 0.4s, 0.6s, 0.8s;
+  transition-timing-function:
+    steps(4, end), cubic-bezier(0.4, 0, 0.2, 1), ease-in-out;
+  transition-delay: 0s, 0.2s, 0.4s;
+}
+.transition-demo.timing:hover {
+  background: #6a1b9a;
+  color: #fffde7;
+  transform: scale(1.2) skewX(10deg);
+}
+
+/* 5. All-in-one: all, single, multi, delay, timing */
+.transition-demo.all {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+.transition-demo.all:hover {
+  background: #00897b;
+  color: #fff;
+  border-radius: 50px;
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 8px 32px rgba(0, 137, 123, 0.3);
+}
+/* Apply different transitions to each div */
+.crewmate {
+  width: 120px;
+  height: 180px;
+  background: #d32f2f;
+  border-radius: 50px 50px 40px 40px / 60px 60px 60px 60px;
+  position: relative;
+  margin: 60px auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition-property: background, box-shadow;
+  transition-duration: 0.4s, 0.3s;
+  transition-timing-function: linear, ease-in;
+  transition-delay: 0s, 0.4s;
+}
+
+.visor {
+  width: 60px;
+  height: 30px;
+  background: #b2ebf2;
+  border-radius: 20px 20px 15px 15px / 20px 20px 15px 15px;
+  position: absolute;
+  top: 35px;
+  left: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0.95;
+  transition-property: opacity, transform;
+  transition-duration: 0.5s, 0.4s;
+  transition-timing-function: ease-in-out, cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 1s, 0s;
+}
+
+.leg.left {
+  width: 32px;
+  height: 50px;
+  background: #b71c1c;
+  border-radius: 0 0 16px 16px;
+  position: absolute;
+  left: 16px;
+  bottom: -50px;
+  transition-property: height, background-color;
+  transition-duration: 0.6s, 0.3s;
+  transition-timing-function: steps(4, end), ease-in;
+}
+
+.leg.right {
+  width: 32px;
+  height: 50px;
+  background: #b71c1c;
+  border-radius: 0 0 16px 16px;
+  position: absolute;
+  right: 16px;
+  bottom: -50px;
+  transition-property: width, margin;
+  transition-duration: 0.5s, 0.2s;
+  transition-timing-function: ease-out, linear;
+}
+
+/* Hover effects to trigger transitions */
+.crewmate:hover {
+  background: #388e3c;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.crewmate:hover .visor {
+  opacity: 0.5;
+  transform: scale(1.2) rotate(-10deg);
+}
+.crewmate:hover .leg.left {
+  height: 70px;
+  background-color: #388e3c;
+}
+.crewmate:hover .leg.right {
+  width: 40px;
+  margin-right: -8px;
+}

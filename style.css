@@ -1,0 +1,109 @@
+/* ===== Page setup ===== */
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background: #222;
+  overflow: hidden;
+}
+
+/* ===== Crewmate body ===== */
+.crewmate {
+  position: relative;
+  width: 120px;
+  height: 160px;
+  background: red;
+  border-radius: 60px 60px 40px 40px;
+
+  /* 🔑 scaling becomes visible from bottom */
+  transform-origin: bottom center;
+
+  /*animation: moveRotateScale 6s infinite;*/
+  animation: moveRotateScaleSkew 6s infinite;
+
+  animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+@keyframes moveRotateScaleSkew {
+  0% {
+    transform: translateX(0px) rotate(0deg) scaleX(1) scaleY(1) skewX(0deg)
+      skewY(0deg);
+  }
+
+  50% {
+    transform: translateX(400px) rotate(180deg) scaleX(1.6) scaleY(0.6)
+      skewX(20deg) /* VERY visible skew */ skewY(-10deg);
+  }
+
+  100% {
+    transform: translateX(800px) rotate(360deg) scaleX(1) scaleY(1) skewX(0deg)
+      skewY(0deg);
+  }
+}
+
+/* ===== Animation ===== */
+@keyframes moveRotateScale {
+  0% {
+    transform: translateX(0px) rotate(0deg) scaleX(1) scaleY(1);
+  }
+
+  50% {
+    transform: translateX(400px) rotate(180deg) scaleX(1.6) /* VERY visible */
+      scaleY(0.6); /* squash */
+  }
+
+  100% {
+    transform: translateX(800px) rotate(360deg) scaleX(1) scaleY(1);
+  }
+}
+
+/* ===== Visor ===== */
+.visor {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  width: 70px;
+  height: 45px;
+  background: lightblue;
+  border-radius: 25px;
+  border: 4px solid white;
+}
+
+/* ===== Legs ===== */
+.leg {
+  position: absolute;
+  bottom: -20px;
+  width: 40px;
+  height: 40px;
+  background: red;
+  border-radius: 0 0 20px 20px;
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
+
+/* ===== Emergency Button ===== */
+.emergency-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  padding: 15px 25px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 0 15px red;
+  transition: 0.3s;
+}
+
+.emergency-btn:hover {
+  background: darkred;
+  box-shadow: 0 0 25px red;
+  transform: scale(1.1);
+}
